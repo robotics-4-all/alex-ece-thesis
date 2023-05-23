@@ -16,6 +16,7 @@ services:
     image: confluentinc/cp-enterprise-kafka:6.0.0
     hostname: kafka
     container_name: kafka
+    restart: unless-stopped
     depends_on:
       - zookeeper
     ports:
