@@ -1,12 +1,14 @@
 # ---- System setup
 
 # start all base infrastructure containers
-docker compose up -d
+#docker compose up -d
 
 # create cassandra tables
+echo -e "[*] Creating Cassandra tables..."
 docker exec cassandra cqlsh -f /scripts/create-tables.cql
 
 # login into cassandra container
+echo -e "[*] Logging into Cassandra container..."
 docker exec -ti cassandra cqlsh
 
 # ---- Publisher
@@ -14,12 +16,18 @@ docker exec -ti cassandra cqlsh
 ## -- low throughput
 
 # publish electricity for 5 households
+echo -e "[*] Publishing Electricity for 5 households..."
+echo -e "[*] Executing <kafka-replay.sh -d 0 -r 5 -h 5 -t 1>"
 ./kafka-replay.sh -d 0 -r 5 -h 5 -t 1
 
 # publish water for 5 households
+echo -e "[*] Publishing Water for 5 households..."
+echo -e "[*] Executing <kafka-replay.sh -d 0 -r 5 -h 5 -t 2>"
 ./kafka-replay.sh -d 0 -r 5 -h 5 -t 2
 
 # publish gas for 5 households
+echo -e "[*] Publishing Gas for 5 households..."
+echo -e "[*] Executing <kafka-replay.sh -d 0 -r 5 -h 5 -t 3>"
 ./kafka-replay.sh -d 0 -r 5 -h 5 -t 3
 
 ## -- high throughput
