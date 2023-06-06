@@ -5,4 +5,4 @@ KAFKA_CONNECT_REDIS_ZIP_URL=https://d1i4a15mxbxib1.cloudfront.net/api/plugins/jc
 mkdir -p connect/redis-connector
 
 cd ./connect/redis-connector && \
-    wget KAFKA_CONNECT_REDIS_ZIP_URL && unzip jcustenborder-kafka-connect-redis-0.0.4.zip
+    wget $KAFKA_CONNECT_REDIS_ZIP_URL && unzip jcustenborder-kafka-connect-redis-0.0.4.zip
