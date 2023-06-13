@@ -62,8 +62,9 @@ For the publisher to be able to replay the data, place:
 
 **Redis Kafka Connector**
 
-Before starting `docker compose` place under `connect/redis-connector` the [Redis Sink Connector](https://www.confluent.io/hub/jcustenborder/kafka-connect-redis) after downloading as zip.
+Use the `init.sh` script to download and store the dependend `redis-connector` sources.
 
+**TODO**: Build the image to include the sources. Currently the redis-connector sources are mounted into the container at runtime, which is not recommended.
 
 **Cassandra**
 
